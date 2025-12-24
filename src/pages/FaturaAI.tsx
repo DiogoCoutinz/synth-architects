@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { FileText, ArrowLeft, Mail, Upload, TableProperties, Check } from "lucide-react";
+import { FileText, Mail, Upload, TableProperties, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Link } from "react-router-dom";
 import {
   Dialog,
   DialogContent,
@@ -55,18 +54,6 @@ const FaturaAI = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="py-6 border-b border-border/50">
-        <div className="container px-6 md:px-8">
-          <Button asChild variant="ghost" size="sm" className="gap-2">
-            <Link to="/">
-              <ArrowLeft className="w-4 h-4" />
-              Voltar
-            </Link>
-          </Button>
-        </div>
-      </header>
-
       {/* Hero + Video + CTA - Single focused section */}
       <section className="py-12 md:py-16 relative min-h-[calc(100vh-80px)]">
         <div className="absolute inset-0 bg-gradient-hero" />
