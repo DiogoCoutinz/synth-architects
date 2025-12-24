@@ -3,23 +3,23 @@ import { motion } from "framer-motion";
 const steps = [
   {
     number: "01",
-    title: "Understand the Business",
-    description: "Deep dive into your operations, workflows, and pain points to identify the highest-impact automation opportunities."
+    title: "Perceber o Negócio",
+    description: "Análise profunda das tuas operações, workflows e pontos de fricção para identificar as oportunidades de automação com maior impacto."
   },
   {
     number: "02",
-    title: "Design the AI System",
-    description: "Architect a tailored solution using the right combination of AI models, tools, and integrations for your specific needs."
+    title: "Desenhar o Sistema de AI",
+    description: "Arquitectar uma solução à medida usando a combinação certa de modelos de AI, ferramentas e integrações para as tuas necessidades específicas."
   },
   {
     number: "03",
-    title: "Implement and Deploy",
-    description: "Build, test, and deploy the system into your live environment with minimal disruption to ongoing operations."
+    title: "Implementar e Lançar",
+    description: "Construir, testar e lançar o sistema no teu ambiente real com o mínimo de disrupção às operações em curso."
   },
   {
     number: "04",
-    title: "Iterate or Scale",
-    description: "Monitor performance, refine the system based on real results, and expand to new use cases as value is proven."
+    title: "Iterar ou Escalar",
+    description: "Monitorizar performance, refinar o sistema com base em resultados reais, e expandir para novos casos de uso à medida que o valor é comprovado."
   }
 ];
 
@@ -35,10 +35,10 @@ const HowIWorkSection = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            How I Work
+            Como Trabalho
           </h2>
           <p className="text-muted-foreground text-lg">
-            A structured approach that moves from understanding to impact.
+            Uma abordagem estruturada que vai da compreensão ao impacto.
           </p>
         </motion.div>
 
