@@ -4,21 +4,21 @@ import { Package, Wrench, Users } from "lucide-react";
 const products = [
   {
     icon: Package,
-    title: "Productized AI Solutions",
-    description: "Pre-built, battle-tested AI systems for common business challenges. Quick to deploy, immediate results.",
-    tag: "Fast Implementation"
+    title: "Soluções de AI Productizadas",
+    description: "Sistemas de AI pré-construídos e testados para desafios comuns de negócio. Rápidos de implementar, resultados imediatos.",
+    tag: "Implementação Rápida"
   },
   {
     icon: Wrench,
-    title: "Custom AI Systems",
-    description: "Bespoke automation designed and built specifically for your unique operations and workflows. Done-for-you.",
-    tag: "Tailored Solutions"
+    title: "Sistemas de AI Personalizados",
+    description: "Automação desenhada e construída especificamente para as tuas operações e workflows únicos. Done-for-you.",
+    tag: "Soluções à Medida"
   },
   {
     icon: Users,
     title: "AI Partner",
-    description: "Long-term collaboration to continuously identify, design, and implement AI opportunities across your organization.",
-    tag: "Strategic Partnership"
+    description: "Colaboração de longo prazo para identificar, desenhar e implementar continuamente oportunidades de AI na tua organização.",
+    tag: "Parceria Estratégica"
   }
 ];
 
@@ -34,10 +34,10 @@ const ProductsSection = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Ways to Work Together
+            Formas de Colaboração
           </h2>
           <p className="text-muted-foreground text-lg">
-            Choose the engagement model that fits your needs and stage.
+            Escolhe o modelo de trabalho que melhor se adapta às tuas necessidades.
           </p>
         </motion.div>
 

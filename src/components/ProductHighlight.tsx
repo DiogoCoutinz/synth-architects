@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const features = [
-  "Automatic invoice extraction",
-  "Multi-format support",
-  "ERP integration ready",
-  "99%+ accuracy"
+  "Extracção automática de dados",
+  "Suporte multi-formato",
+  "Integração com ERP",
+  "99%+ de precisão"
 ];
 
 const ProductHighlight = () => {
@@ -35,18 +35,18 @@ const ProductHighlight = () => {
                       <Zap className="w-5 h-5 text-primary" />
                     </div>
                     <span className="text-sm font-medium text-primary uppercase tracking-wider">
-                      Featured Product
+                      Produto em Destaque
                     </span>
                   </div>
                   
                   <h3 className="font-heading text-3xl md:text-4xl font-bold mb-4">
-                    Invoice Automation
+                    Automatização de Faturas
                   </h3>
                   
                   <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                    Stop processing invoices manually. This AI system extracts data from 
-                    any invoice format, validates it, and pushes it directly into your 
-                    accounting system — automatically.
+                    Deixa de processar faturas manualmente. Este sistema de AI extrai dados de 
+                    qualquer formato de fatura, valida-os, e envia directamente para o teu 
+                    sistema de contabilidade — automaticamente.
                   </p>
 
                   <ul className="space-y-3 mb-8">
@@ -60,7 +60,7 @@ const ProductHighlight = () => {
 
                   <Button asChild variant="hero" size="lg" className="group">
                     <Link to="/faturaAI">
-                      Learn More
+                      Saber Mais
                       <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                     </Link>
                   </Button>

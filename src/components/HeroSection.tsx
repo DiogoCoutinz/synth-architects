@@ -25,7 +25,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <span className="inline-block px-4 py-1.5 mb-8 text-xs font-medium tracking-wider uppercase text-primary border border-primary/30 rounded-full bg-primary/5">
-              AI Systems & Automation
+              Sistemas de AI & Automação
             </span>
           </motion.div>
 
@@ -35,9 +35,9 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           >
-            I help companies implement{" "}
-            <span className="text-gradient">AI systems</span>{" "}
-            that eliminate manual work and unlock scale.
+            Ajudo empresas a implementar{" "}
+            <span className="text-gradient">sistemas de AI</span>{" "}
+            que eliminam trabalho manual e permitem escalar sem fricção.
           </motion.h1>
 
           <motion.p 
@@ -46,8 +46,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           >
-            I design and deploy real AI-powered workflows for internal operations 
-            and business processes — not demos.
+            Sou o Diogo Coutinho. Desenho e implemento sistemas de AI aplicados a operações reais — automação, dados e workflows internos. Nada de demos. Sistemas que funcionam.
           </motion.p>
 
           <motion.div
@@ -58,7 +57,7 @@ const HeroSection = () => {
           >
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span>Available for new projects</span>
+              <span>Disponível para novos projectos</span>
             </div>
           </motion.div>
         </div>

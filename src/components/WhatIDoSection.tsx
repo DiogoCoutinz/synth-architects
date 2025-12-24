@@ -4,18 +4,18 @@ import { Cpu, Workflow, TrendingUp } from "lucide-react";
 const features = [
   {
     icon: Cpu,
-    title: "AI Implementation",
-    description: "I integrate AI models and tools into your existing systems, turning complex technology into practical business solutions."
+    title: "Implementação de AI",
+    description: "Integro modelos e ferramentas de AI nos teus sistemas existentes, transformando tecnologia complexa em soluções práticas para o negócio."
   },
   {
     icon: Workflow,
-    title: "Process Automation",
-    description: "I identify repetitive tasks across your operations and design automated workflows that run without human intervention."
+    title: "Automação de Processos",
+    description: "Identifico tarefas repetitivas nas tuas operações e desenho workflows automatizados que funcionam sem intervenção humana."
   },
   {
     icon: TrendingUp,
-    title: "Scalable Systems",
-    description: "I build AI systems designed to grow with your business, handling increased volume without proportional cost increases."
+    title: "Sistemas Escaláveis",
+    description: "Construo sistemas de AI preparados para crescer com o teu negócio, suportando mais volume sem aumentar custos proporcionalmente."
   }
 ];
 
@@ -31,11 +31,11 @@ const WhatIDoSection = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            What I Do
+            O Que Faço
           </h2>
           <p className="text-muted-foreground text-lg">
-            I help companies move from manual processes to intelligent, automated operations. 
-            No buzzwords — just real systems that work.
+            Ajudo empresas a passar de processos manuais para operações inteligentes e automatizadas. 
+            Sem buzzwords — sistemas reais que funcionam.
           </p>
         </motion.div>
 
