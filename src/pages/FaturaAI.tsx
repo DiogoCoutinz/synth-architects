@@ -88,7 +88,6 @@ const FaturaAI = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        mode: "no-cors",
         body: JSON.stringify({
           ...formData,
           timestamp: new Date().toISOString(),
