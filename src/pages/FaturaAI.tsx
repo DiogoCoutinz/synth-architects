@@ -34,6 +34,8 @@ const benefits = [
   }
 ];
 
+const N8N_WEBHOOK_URL = "https://n8n.diogocoutinho.cloud/webhook/faturasAI";
+
 const FaturaAI = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -83,16 +85,30 @@ const FaturaAI = () => {
     setIsLoading(true);
 
     try {
-      await fetch("https://n8n.diogocoutinho.cloud/webhook/faturasAI", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...formData,
-          timestamp: new Date().toISOString(),
-        }),
+      const payload = JSON.stringify({
+        ...formData,
+        timestamp: new Date().toISOString(),
       });
+
+      // Nota: no browser, chamadas cross-origin com Content-Type application/json
+      // disparam preflight CORS e costumam falhar em webhooks n8n.
+      // sendBeacon/no-cors permite "enviar" os dados sem depender de CORS.
+      const beaconOk = navigator.sendBeacon?.(
+        N8N_WEBHOOK_URL,
+        new Blob([payload], { type: "text/plain;charset=UTF-8" })
+      );
+
+      if (!beaconOk) {
+        await fetch(N8N_WEBHOOK_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "text/plain;charset=UTF-8",
+          },
+          body: payload,
+        });
+      }
+
       setIsSubmitted(true);
     } catch (error) {
       console.error("Error submitting form:", error);
