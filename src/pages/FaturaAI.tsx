@@ -5,33 +5,22 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 const benefits = [
   {
     icon: Mail,
-    text: "Recolha automática de faturas (email ou upload)"
+    text: "Recolha automática de faturas (email ou upload)",
   },
   {
     icon: TableProperties,
-    text: "Dados organizados em Excel ou dashboard"
+    text: "Dados organizados em Excel ou dashboard",
   },
   {
     icon: Check,
-    text: "Pronto para contabilista e equipas internas"
-  }
+    text: "Pronto para contabilista e equipas internas",
+  },
 ];
 
 const N8N_WEBHOOK_URL = "https://n8n.diogocoutinho.cloud/webhook/faturasAI";
@@ -49,7 +38,7 @@ const FaturaAI = () => {
     numeroFaturas: "",
     urgencia: "",
     estruturaPastas: "",
-    notaExtra: ""
+    notaExtra: "",
   });
 
   const validateEmail = (email: string): boolean => {
@@ -59,7 +48,7 @@ const FaturaAI = () => {
 
   const validatePhone = (phone: string): boolean => {
     const phoneRegex = /^\+?[0-9]{7,15}$/;
-    return phoneRegex.test(phone.replace(/\s/g, ''));
+    return phoneRegex.test(phone.replace(/\s/g, ""));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -95,7 +84,7 @@ const FaturaAI = () => {
       // sendBeacon/no-cors permite "enviar" os dados sem depender de CORS.
       const beaconOk = navigator.sendBeacon?.(
         N8N_WEBHOOK_URL,
-        new Blob([payload], { type: "text/plain;charset=UTF-8" })
+        new Blob([payload], { type: "text/plain;charset=UTF-8" }),
       );
 
       if (!beaconOk) {
@@ -119,13 +108,13 @@ const FaturaAI = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
     // Clear error when user starts typing
     if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: "" }));
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
 
@@ -135,7 +124,7 @@ const FaturaAI = () => {
       <section className="py-8 md:py-16 relative min-h-[calc(100vh-80px)]">
         <div className="absolute inset-0 bg-gradient-hero" />
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] animate-glow-pulse" />
-        
+
         <div className="container px-4 md:px-8 relative z-10">
           <div className="max-w-4xl mx-auto">
             {/* Headline */}
@@ -154,8 +143,8 @@ const FaturaAI = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              Este sistema de AI recolhe, organiza e extrai dados de faturas automaticamente, 
-              sem mudares os teus processos actuais.
+              Este sistema de AI recolhe, organiza e extrai dados de faturas automaticamente, sem mudares os teus
+              processos actuais.
             </motion.p>
 
             {/* Video - Immediately visible */}
@@ -183,9 +172,9 @@ const FaturaAI = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <Button 
-                variant="hero" 
-                size="lg" 
+              <Button
+                variant="hero"
+                size="lg"
                 className="text-sm sm:text-base md:text-lg px-6 sm:px-8 py-5 sm:py-6 w-full sm:w-auto"
                 onClick={() => setIsFormOpen(true)}
               >
@@ -238,7 +227,9 @@ const FaturaAI = () => {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4 pt-2">
               <div className="space-y-1.5">
-                <Label htmlFor="nomeEmpresa" className="text-sm">Nome da empresa</Label>
+                <Label htmlFor="nomeEmpresa" className="text-sm">
+                  Nome da empresa
+                </Label>
                 <Input
                   id="nomeEmpresa"
                   name="nomeEmpresa"
@@ -250,7 +241,9 @@ const FaturaAI = () => {
               </div>
 
               <div className="space-y-1.5">
-                <Label htmlFor="email" className="text-sm">Email</Label>
+                <Label htmlFor="email" className="text-sm">
+                  Email
+                </Label>
                 <Input
                   id="email"
                   name="email"
@@ -258,11 +251,9 @@ const FaturaAI = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className={`bg-background h-10 sm:h-11 ${errors.email ? 'border-destructive' : ''}`}
+                  className={`bg-background h-10 sm:h-11 ${errors.email ? "border-destructive" : ""}`}
                 />
-                {errors.email && (
-                  <p className="text-xs text-destructive">{errors.email}</p>
-                )}
+                {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
               </div>
 
               <div className="space-y-1.5">
@@ -278,15 +269,15 @@ const FaturaAI = () => {
                   value={formData.telemovel}
                   onChange={handleInputChange}
                   required
-                  className={`bg-background h-10 sm:h-11 ${errors.telemovel ? 'border-destructive' : ''}`}
+                  className={`bg-background h-10 sm:h-11 ${errors.telemovel ? "border-destructive" : ""}`}
                 />
-                {errors.telemovel && (
-                  <p className="text-xs text-destructive">{errors.telemovel}</p>
-                )}
+                {errors.telemovel && <p className="text-xs text-destructive">{errors.telemovel}</p>}
               </div>
 
               <div className="space-y-1.5">
-                <Label htmlFor="facturacaoAnual" className="text-sm">Facturação anual aproximada</Label>
+                <Label htmlFor="facturacaoAnual" className="text-sm">
+                  Facturação anual aproximada
+                </Label>
                 <Input
                   id="facturacaoAnual"
                   name="facturacaoAnual"
@@ -301,7 +292,7 @@ const FaturaAI = () => {
                 <Label className="text-sm">Número médio de faturas por mês</Label>
                 <Select
                   value={formData.numeroFaturas}
-                  onValueChange={(value) => setFormData(prev => ({ ...prev, numeroFaturas: value }))}
+                  onValueChange={(value) => setFormData((prev) => ({ ...prev, numeroFaturas: value }))}
                   required
                 >
                   <SelectTrigger className="bg-background h-10 sm:h-11">
@@ -320,7 +311,7 @@ const FaturaAI = () => {
                 <Label className="text-sm">Urgência em resolver este problema</Label>
                 <Select
                   value={formData.urgencia}
-                  onValueChange={(value) => setFormData(prev => ({ ...prev, urgencia: value }))}
+                  onValueChange={(value) => setFormData((prev) => ({ ...prev, urgencia: value }))}
                   required
                 >
                   <SelectTrigger className="bg-background h-10 sm:h-11">
@@ -335,7 +326,9 @@ const FaturaAI = () => {
               </div>
 
               <div className="space-y-1.5">
-                <Label htmlFor="estruturaPastas" className="text-sm">Estrutura de pastas pretendida</Label>
+                <Label htmlFor="estruturaPastas" className="text-sm">
+                  Estrutura de pastas pretendida
+                </Label>
                 <Input
                   id="estruturaPastas"
                   name="estruturaPastas"
