@@ -37,6 +37,7 @@ const benefits = [
 const FaturaAI = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formData, setFormData] = useState({
     nomeEmpresa: "",
@@ -55,12 +56,11 @@ const FaturaAI = () => {
   };
 
   const validatePhone = (phone: string): boolean => {
-    // International phone validation: optional + followed by 7-15 digits
     const phoneRegex = /^\+?[0-9]{7,15}$/;
     return phoneRegex.test(phone.replace(/\s/g, ''));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const newErrors: Record<string, string> = {};
 
@@ -68,7 +68,9 @@ const FaturaAI = () => {
       newErrors.email = "Por favor insere um email válido";
     }
 
-    if (!validatePhone(formData.telemovel)) {
+    if (!formData.telemovel.trim()) {
+      newErrors.telemovel = "Telemóvel é obrigatório";
+    } else if (!validatePhone(formData.telemovel)) {
       newErrors.telemovel = "Por favor insere um número válido (ex: +351912345678)";
     }
 
@@ -78,7 +80,26 @@ const FaturaAI = () => {
     }
 
     setErrors({});
-    setIsSubmitted(true);
+    setIsLoading(true);
+
+    try {
+      await fetch("https://n8n.diogocoutinho.cloud/webhook/faturasAI", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        mode: "no-cors",
+        body: JSON.stringify({
+          ...formData,
+          timestamp: new Date().toISOString(),
+        }),
+      });
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -194,8 +215,9 @@ const FaturaAI = () => {
               <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4 sm:mb-6">
                 <Check className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />
               </div>
+              <h3 className="font-heading text-base sm:text-lg mb-2">Formulário enviado!</h3>
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed px-2">
-                Obrigado. Vou analisar a informação e entro em contacto caso esta solução faça sentido para a tua empresa.
+                Obrigado pelo interesse. Vamos entrar em contacto em breve.
               </p>
             </motion.div>
           ) : (
@@ -229,7 +251,10 @@ const FaturaAI = () => {
               </div>
 
               <div className="space-y-1.5">
-                <Label htmlFor="telemovel" className="text-sm">Telemóvel</Label>
+                <Label htmlFor="telemovel" className="text-sm">
+                  Telemóvel <span className="text-destructive">*</span>
+                  <span className="text-muted-foreground font-normal ml-1">(para contactar via WhatsApp)</span>
+                </Label>
                 <Input
                   id="telemovel"
                   name="telemovel"
@@ -320,8 +345,8 @@ const FaturaAI = () => {
                 />
               </div>
 
-              <Button type="submit" variant="hero" className="w-full mt-4 h-11 sm:h-12">
-                Enviar
+              <Button type="submit" variant="hero" className="w-full mt-4 h-11 sm:h-12" disabled={isLoading}>
+                {isLoading ? "A enviar..." : "Enviar"}
               </Button>
             </form>
           )}
