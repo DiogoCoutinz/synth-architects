@@ -341,7 +341,7 @@ const FaturaAI = () => {
 
               <div className="space-y-1.5">
                 <Label htmlFor="notaExtra" className="text-sm text-muted-foreground">
-                  Se não se aplicar ao teu caso, explica-nos o que precisas
+                  Mais alguma coisa que gostava que o sistema fizesse ou informação que devíamos saber? (escreva tudo o que achar necessário)
                 </Label>
                 <Textarea
                   id="notaExtra"
