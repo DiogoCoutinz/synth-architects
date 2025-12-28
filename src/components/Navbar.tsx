@@ -56,7 +56,7 @@ const Navbar = () => {
               onClick={() => scrollToSection("projectos")}
               className="text-xs uppercase tracking-wider text-muted-foreground hover:text-primary transition-all duration-300"
             >
-              Projectos
+              Produtos
             </button>
             <Button 
               onClick={() => scrollToSection("contacto")} 
@@ -96,7 +96,7 @@ const Navbar = () => {
               onClick={() => scrollToSection("projectos")}
               className="block w-full text-left py-2 text-xs uppercase tracking-wider text-muted-foreground"
             >
-              Projectos
+              Produtos
             </button>
             <Button onClick={() => scrollToSection("contacto")} size="sm" className="w-full">
               Contacto

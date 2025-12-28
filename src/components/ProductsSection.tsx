@@ -42,7 +42,7 @@ const ProductsSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            Projectos
+            Produtos
           </motion.h2>
 
           <div className="space-y-1">

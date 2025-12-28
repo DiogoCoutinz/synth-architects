@@ -26,20 +26,20 @@ const HeroSection = () => {
       <div className="absolute inset-0 opacity-40">
         <LiquidEther
           colors={['#06b6d4', '#0ea5e9', '#8b5cf6']}
-          mouseForce={30}
-          cursorSize={150}
-          isViscous={true}
-          viscous={50}
-          iterationsViscous={40}
-          iterationsPoisson={40}
-          resolution={0.7}
+          mouseForce={50}
+          cursorSize={180}
+          isViscous={false}
+          viscous={20}
+          iterationsViscous={20}
+          iterationsPoisson={20}
+          resolution={0.6}
           isBounce={false}
           autoDemo={true}
-          autoSpeed={0.4}
-          autoIntensity={2.5}
-          takeoverDuration={0.6}
-          autoResumeDelay={3000}
-          autoRampDuration={1.2}
+          autoSpeed={0.6}
+          autoIntensity={3.0}
+          takeoverDuration={0.2}
+          autoResumeDelay={2500}
+          autoRampDuration={0.5}
         />
       </div>
 
@@ -115,7 +115,7 @@ const HeroSection = () => {
               size="lg"
               className="h-12 px-8 text-muted-foreground hover:text-foreground"
             >
-              Ver Projectos
+              Ver Produtos
             </Button>
           </motion.div>
         </div>
