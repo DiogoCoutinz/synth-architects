@@ -157,7 +157,7 @@ const FaturaAI = () => {
               <div className="aspect-video rounded-lg md:rounded-xl overflow-hidden border border-border/50 bg-card shadow-lg">
                 <iframe
                   className="w-full h-full"
-                  src="https://youtu.be/J_6fzpv-kUQ"
+                  src="https://www.youtube.com/watch?v=J_6fzpv-kUQ"
                   title="Automatização de Faturas - Demo"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
@@ -341,7 +341,8 @@ const FaturaAI = () => {
 
               <div className="space-y-1.5">
                 <Label htmlFor="notaExtra" className="text-sm text-muted-foreground">
-                  Mais alguma coisa que gostava que o sistema fizesse ou informação que devíamos saber? (escreva tudo o que achar necessário)
+                  Mais alguma coisa que gostava que o sistema fizesse ou informação que devíamos saber? (escreva tudo o
+                  que achar necessário)
                 </Label>
                 <Textarea
                   id="notaExtra"
