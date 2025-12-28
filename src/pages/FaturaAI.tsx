@@ -157,7 +157,7 @@ const FaturaAI = () => {
               <div className="aspect-video rounded-lg md:rounded-xl overflow-hidden border border-border/50 bg-card shadow-lg">
                 <iframe
                   className="w-full h-full"
-                  src="https://www.youtube.com/embed/E3IL7N0E5-k"
+                  src="https://youtu.be/J_6fzpv-kUQ"
                   title="Automatização de Faturas - Demo"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
