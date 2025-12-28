@@ -1,73 +1,74 @@
-# Welcome to your Lovable project
+# Diogo Coutinho — Website Pessoal
 
-## Project info
+Website pessoal e portfólio de serviços de AI & Automação.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 🚀 Tecnologias
 
-## How can I edit this code?
+- **React 18** com TypeScript
+- **Vite** para build ultrarrápido
+- **Tailwind CSS** para styling
+- **shadcn/ui** para componentes
+- **Framer Motion** para animações
+- **React Router** para navegação
 
-There are several ways of editing your application.
+## 📦 Instalação
 
-**Use Lovable**
+```bash
+# Instalar dependências
+npm install
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Desenvolvimento
 npm run dev
+
+# Build para produção
+npm run build
+
+# Preview da build
+npm run preview
 ```
 
-**Edit a file directly in GitHub**
+## 🎨 Estrutura
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```
+src/
+├── components/       # Componentes reutilizáveis
+│   ├── ui/          # Componentes shadcn/ui
+│   ├── Navbar.tsx
+│   ├── HeroSection.tsx
+│   ├── WhatIDoSection.tsx
+│   ├── ProductsSection.tsx
+│   ├── HowIWorkSection.tsx
+│   ├── ContactSection.tsx
+│   └── Footer.tsx
+├── pages/           # Páginas
+│   ├── Index.tsx    # Homepage
+│   ├── FaturaAI.tsx # Landing page FaturaAI
+│   └── NotFound.tsx
+├── lib/             # Utilities
+└── hooks/           # React hooks customizados
+```
 
-**Use GitHub Codespaces**
+## 🎯 Features
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- ✅ Design moderno e responsivo
+- ✅ Animações suaves com Framer Motion
+- ✅ Navegação por scroll suave
+- ✅ SEO otimizado
+- ✅ Performance otimizada
+- ✅ TypeScript strict mode
+- ✅ Componentes acessíveis
 
-## What technologies are used for this project?
+## 📝 Páginas
 
-This project is built with:
+- `/` - Homepage com portfólio e serviços
+- `/faturaAI` - Landing page do produto FaturaAI
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🔧 Customização
 
-## How can I deploy this project?
+As cores e estilos podem ser alterados em:
+- `src/index.css` - Variáveis CSS e tema
+- `tailwind.config.ts` - Configuração do Tailwind
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## 📄 Licença
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+© 2025 Diogo Coutinho. Todos os direitos reservados.

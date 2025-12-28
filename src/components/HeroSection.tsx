@@ -1,70 +1,139 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import { useRef } from "react";
+import LiquidEther from "@/components/LiquidEther";
 
 const HeroSection = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"]
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background glow effects */}
-      <div className="absolute inset-0 bg-gradient-hero" />
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] animate-glow-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/5 rounded-full blur-[100px] animate-glow-pulse" style={{ animationDelay: "1.5s" }} />
+    <section ref={ref} id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Liquid Ether Background */}
+      <div className="absolute inset-0 opacity-40">
+        <LiquidEther
+          colors={['#06b6d4', '#0ea5e9', '#8b5cf6']}
+          mouseForce={30}
+          cursorSize={150}
+          isViscous={true}
+          viscous={50}
+          iterationsViscous={40}
+          iterationsPoisson={40}
+          resolution={0.7}
+          isBounce={false}
+          autoDemo={true}
+          autoSpeed={0.4}
+          autoIntensity={2.5}
+          takeoverDuration={0.6}
+          autoResumeDelay={3000}
+          autoRampDuration={1.2}
+        />
+      </div>
+
+      {/* Gradient overlay for better readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background/80" />
       
-      {/* Grid pattern overlay */}
+      {/* Subtle grid */}
       <div 
         className="absolute inset-0 opacity-[0.02]"
         style={{
-          backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
+          backgroundImage: `
+            linear-gradient(to right, hsl(var(--primary) / 0.3) 1px, transparent 1px),
+            linear-gradient(to bottom, hsl(var(--primary) / 0.3) 1px, transparent 1px)
+          `,
+          backgroundSize: '80px 80px'
         }}
       />
 
-      <div className="container relative z-10 px-6 md:px-8">
-        <div className="max-w-4xl mx-auto text-center">
+      <motion.div 
+        className="container relative z-10 px-6 md:px-8"
+        style={{ opacity }}
+      >
+        <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mb-16"
           >
-            <span className="inline-block px-4 py-1.5 mb-8 text-xs font-medium tracking-wider uppercase text-primary border border-primary/30 rounded-full bg-primary/5">
-              Sistemas de AI & Automação
-            </span>
+            <h1 className="font-heading text-7xl md:text-8xl lg:text-9xl font-bold tracking-tighter mb-8">
+              <motion.span 
+                className="block"
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+              >
+                Diogo Coutinho
+              </motion.span>
+            </h1>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="space-y-4"
+            >
+              <p className="text-2xl md:text-3xl lg:text-4xl font-light text-muted-foreground max-w-4xl">
+                Elimino trabalho manual com <span className="text-primary font-medium">sistemas de AI</span>
+              </p>
+              <p className="text-lg md:text-xl text-muted-foreground/60 max-w-3xl">
+                Ajudo empresas a escalar sem fricção através de automação inteligente
+              </p>
+            </motion.div>
           </motion.div>
-
-          <motion.h1 
-            className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight mb-8"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          >
-            Ajudo empresas a implementar{" "}
-            <span className="text-gradient">sistemas de AI</span>{" "}
-            que eliminam trabalho manual e permitem escalar sem fricção.
-          </motion.h1>
-
-          <motion.p 
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          >
-            Sou o Diogo Coutinho. Desenho e implemento sistemas de AI aplicados a operações reais — automação, dados e workflows internos. Nada de demos. Sistemas que funcionam.
-          </motion.p>
 
           <motion.div
-            className="mt-12 flex items-center justify-center gap-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            className="flex flex-col sm:flex-row items-start sm:items-center gap-4"
           >
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span>Disponível para novos projectos</span>
-            </div>
+            <Button 
+              onClick={() => scrollToSection("contacto")} 
+              size="lg"
+              className="group bg-primary text-primary-foreground hover:bg-primary/90 h-12 px-8"
+            >
+              Falar Comigo
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </Button>
+            <Button 
+              onClick={() => scrollToSection("projectos")} 
+              variant="ghost"
+              size="lg"
+              className="h-12 px-8 text-muted-foreground hover:text-foreground"
+            >
+              Ver Projectos
+            </Button>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
 
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+      >
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="w-px h-16 bg-gradient-to-b from-primary/0 via-primary/50 to-primary/0"
+        />
+      </motion.div>
     </section>
   );
 };

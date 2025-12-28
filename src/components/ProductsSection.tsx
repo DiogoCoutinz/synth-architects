@@ -1,81 +1,120 @@
 import { motion } from "framer-motion";
-import { Package, Wrench, Users } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 
-const products = [
+const projects = [
   {
-    icon: Package,
-    title: "Soluções de AI Productizadas",
-    description: "Sistemas de AI pré-construídos e testados para desafios comuns de negócio. Rápidos de implementar, resultados imediatos.",
-    tag: "Implementação Rápida"
+    number: "01",
+    title: "Faturas AI",
+    description: "Extração automática de dados",
+    link: "/faturaAI",
+    year: "2024"
   },
   {
-    icon: Wrench,
-    title: "Sistemas de AI Personalizados",
-    description: "Automação desenhada e construída especificamente para as tuas operações e workflows únicos. Done-for-you.",
-    tag: "Soluções à Medida"
+    number: "02",
+    title: "N8N Workflows",
+    description: "Automação personalizada",
+    year: "2024"
   },
   {
-    icon: Users,
-    title: "AI Partner",
-    description: "Colaboração de longo prazo para identificar, desenhar e implementar continuamente oportunidades de AI na tua organização.",
-    tag: "Parceria Estratégica"
+    number: "03",
+    title: "AI Strategy",
+    description: "Consultoria e implementação",
+    year: "2024"
   }
 ];
 
 const ProductsSection = () => {
   return (
-    <section className="py-32 relative">
+    <section id="projectos" className="py-32 md:py-40 relative bg-secondary/10">
       <div className="container px-6 md:px-8">
         <motion.div 
-          className="max-w-3xl mx-auto text-center mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          className="max-w-6xl mx-auto"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
         >
-          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Formas de Colaboração
-          </h2>
-          <p className="text-muted-foreground text-lg">
-            Escolhe o modelo de trabalho que melhor se adapta às tuas necessidades.
-          </p>
-        </motion.div>
+          <motion.h2 
+            className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold mb-24 tracking-tight"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            Projectos
+          </motion.h2>
 
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-          {products.map((product, index) => (
-            <motion.div
-              key={product.title}
-              className="group relative"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-            >
-              <div className="h-full p-8 rounded-2xl bg-card border border-border/50 hover:border-primary/30 transition-all duration-500 relative overflow-hidden">
-                {/* Hover glow effect */}
-                <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                <div className="relative">
-                  <span className="inline-block px-3 py-1 mb-6 text-xs font-medium text-primary/80 bg-primary/10 rounded-full">
-                    {product.tag}
-                  </span>
-                  
-                  <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center mb-6">
-                    <product.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  
-                  <h3 className="font-heading text-xl font-semibold mb-3">
-                    {product.title}
-                  </h3>
-                  
-                  <p className="text-muted-foreground leading-relaxed">
-                    {product.description}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+          <div className="space-y-1">
+            {projects.map((project, index) => (
+              <motion.div
+                key={project.number}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                {project.link ? (
+                  <Link to={project.link}>
+                    <motion.div
+                      className="group py-8 border-t border-border/30 hover:border-primary/30 transition-colors duration-300"
+                      whileHover={{ x: 10 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-12">
+                          <span className="text-sm text-muted-foreground/50 font-mono w-12">
+                            {project.number}
+                          </span>
+                          <div>
+                            <h3 className="font-heading text-3xl md:text-4xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                              {project.title}
+                            </h3>
+                            <p className="text-muted-foreground/60">
+                              {project.description}
+                            </p>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-8">
+                          <span className="text-sm text-muted-foreground/50 font-mono hidden md:block">
+                            {project.year}
+                          </span>
+                          <ArrowUpRight className="w-6 h-6 text-muted-foreground/30 group-hover:text-primary group-hover:scale-125 transition-all duration-300" />
+                        </div>
+                      </div>
+                    </motion.div>
+                  </Link>
+                ) : (
+                  <motion.div
+                    className="group py-8 border-t border-border/30 opacity-50 cursor-not-allowed"
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-12">
+                        <span className="text-sm text-muted-foreground/50 font-mono w-12">
+                          {project.number}
+                        </span>
+                        <div>
+                          <h3 className="font-heading text-3xl md:text-4xl font-semibold mb-2">
+                            {project.title}
+                          </h3>
+                          <p className="text-muted-foreground/60">
+                            {project.description}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-8">
+                        <span className="text-sm text-muted-foreground/50 font-mono hidden md:block">
+                          {project.year}
+                        </span>
+                        <span className="text-xs text-muted-foreground/30">Em breve</span>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
