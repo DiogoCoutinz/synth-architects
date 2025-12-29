@@ -202,163 +202,164 @@ const FaturaAI = () => {
 
       {/* Form Dialog */}
       <Dialog open={isFormOpen} onOpenChange={setIsFormOpen}>
-        <DialogContent className="sm:max-w-lg bg-card border-border max-h-[90vh] overflow-y-auto mx-4">
-          <DialogHeader>
+        <DialogContent className="w-[calc(100vw-32px)] max-w-lg bg-card border-border max-h-[85vh] p-0 gap-0">
+          <DialogHeader className="px-4 sm:px-6 pt-4 sm:pt-6 pb-2 sticky top-0 bg-card z-10 border-b border-border/50">
             <DialogTitle className="font-heading text-lg sm:text-xl">
               {isSubmitted ? "Obrigado" : "Fala-me sobre a tua empresa"}
             </DialogTitle>
           </DialogHeader>
 
-          {isSubmitted ? (
-            <motion.div
-              className="py-6 sm:py-8 text-center"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4 sm:mb-6">
-                <Check className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />
-              </div>
-              <h3 className="font-heading text-base sm:text-lg mb-2">Formulário enviado!</h3>
-              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed px-2">
-                Obrigado pelo interesse. Vamos entrar em contacto em breve.
-              </p>
-            </motion.div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-4 pt-2">
-              <div className="space-y-1.5">
-                <Label htmlFor="nomeEmpresa" className="text-sm">
-                  Nome da empresa
-                </Label>
-                <Input
-                  id="nomeEmpresa"
-                  name="nomeEmpresa"
-                  value={formData.nomeEmpresa}
-                  onChange={handleInputChange}
-                  required
-                  className="bg-background h-10 sm:h-11"
-                />
-              </div>
+          <div className="overflow-y-auto px-4 sm:px-6 pb-4 sm:pb-6">
+            {isSubmitted ? (
+              <motion.div
+                className="py-6 sm:py-8 text-center"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                  <Check className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />
+                </div>
+                <h3 className="font-heading text-base sm:text-lg mb-2">Formulário enviado!</h3>
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed px-2">
+                  Obrigado pelo interesse. Vamos entrar em contacto em breve.
+                </p>
+              </motion.div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4 pt-3">
+                <div className="space-y-1">
+                  <Label htmlFor="nomeEmpresa" className="text-sm">
+                    Nome da empresa
+                  </Label>
+                  <Input
+                    id="nomeEmpresa"
+                    name="nomeEmpresa"
+                    value={formData.nomeEmpresa}
+                    onChange={handleInputChange}
+                    required
+                    className="bg-background h-10"
+                  />
+                </div>
 
-              <div className="space-y-1.5">
-                <Label htmlFor="email" className="text-sm">
-                  Email
-                </Label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                  className={`bg-background h-10 sm:h-11 ${errors.email ? "border-destructive" : ""}`}
-                />
-                {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
-              </div>
+                <div className="space-y-1">
+                  <Label htmlFor="email" className="text-sm">
+                    Email
+                  </Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className={`bg-background h-10 ${errors.email ? "border-destructive" : ""}`}
+                  />
+                  {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
+                </div>
 
-              <div className="space-y-1.5">
-                <Label htmlFor="telemovel" className="text-sm">
-                  Telemóvel <span className="text-destructive">*</span>
-                  <span className="text-muted-foreground font-normal ml-1">(para contactar via WhatsApp)</span>
-                </Label>
-                <Input
-                  id="telemovel"
-                  name="telemovel"
-                  type="tel"
-                  placeholder="+351 912 345 678"
-                  value={formData.telemovel}
-                  onChange={handleInputChange}
-                  required
-                  className={`bg-background h-10 sm:h-11 ${errors.telemovel ? "border-destructive" : ""}`}
-                />
-                {errors.telemovel && <p className="text-xs text-destructive">{errors.telemovel}</p>}
-              </div>
+                <div className="space-y-1">
+                  <Label htmlFor="telemovel" className="text-sm">
+                    Telemóvel <span className="text-destructive">*</span>
+                    <span className="text-muted-foreground font-normal text-xs ml-1">(WhatsApp)</span>
+                  </Label>
+                  <Input
+                    id="telemovel"
+                    name="telemovel"
+                    type="tel"
+                    placeholder="+351 912 345 678"
+                    value={formData.telemovel}
+                    onChange={handleInputChange}
+                    required
+                    className={`bg-background h-10 ${errors.telemovel ? "border-destructive" : ""}`}
+                  />
+                  {errors.telemovel && <p className="text-xs text-destructive">{errors.telemovel}</p>}
+                </div>
 
-              <div className="space-y-1.5">
-                <Label htmlFor="facturacaoAnual" className="text-sm">
-                  Facturação anual aproximada
-                </Label>
-                <Input
-                  id="facturacaoAnual"
-                  name="facturacaoAnual"
-                  value={formData.facturacaoAnual}
-                  onChange={handleInputChange}
-                  required
-                  className="bg-background h-10 sm:h-11"
-                />
-              </div>
+                <div className="space-y-1">
+                  <Label htmlFor="facturacaoAnual" className="text-sm">
+                    Facturação anual aproximada
+                  </Label>
+                  <Input
+                    id="facturacaoAnual"
+                    name="facturacaoAnual"
+                    value={formData.facturacaoAnual}
+                    onChange={handleInputChange}
+                    required
+                    className="bg-background h-10"
+                  />
+                </div>
 
-              <div className="space-y-1.5">
-                <Label className="text-sm">Número médio de faturas por mês</Label>
-                <Select
-                  value={formData.numeroFaturas}
-                  onValueChange={(value) => setFormData((prev) => ({ ...prev, numeroFaturas: value }))}
-                  required
-                >
-                  <SelectTrigger className="bg-background h-10 sm:h-11">
-                    <SelectValue placeholder="Selecciona uma opção" />
-                  </SelectTrigger>
-                  <SelectContent className="bg-card border-border">
-                    <SelectItem value="0-50">0 - 50</SelectItem>
-                    <SelectItem value="50-200">50 - 200</SelectItem>
-                    <SelectItem value="200-500">200 - 500</SelectItem>
-                    <SelectItem value="500+">500+</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+                <div className="space-y-1">
+                  <Label className="text-sm">Número médio de faturas por mês</Label>
+                  <Select
+                    value={formData.numeroFaturas}
+                    onValueChange={(value) => setFormData((prev) => ({ ...prev, numeroFaturas: value }))}
+                    required
+                  >
+                    <SelectTrigger className="bg-background h-10">
+                      <SelectValue placeholder="Selecciona uma opção" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-card border-border" position="popper" sideOffset={4}>
+                      <SelectItem value="0-50">0 - 50</SelectItem>
+                      <SelectItem value="50-200">50 - 200</SelectItem>
+                      <SelectItem value="200-500">200 - 500</SelectItem>
+                      <SelectItem value="500+">500+</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
 
-              <div className="space-y-1.5">
-                <Label className="text-sm">Urgência em resolver este problema</Label>
-                <Select
-                  value={formData.urgencia}
-                  onValueChange={(value) => setFormData((prev) => ({ ...prev, urgencia: value }))}
-                  required
-                >
-                  <SelectTrigger className="bg-background h-10 sm:h-11">
-                    <SelectValue placeholder="Selecciona uma opção" />
-                  </SelectTrigger>
-                  <SelectContent className="bg-card border-border">
-                    <SelectItem value="imediata">Imediata</SelectItem>
-                    <SelectItem value="proximas-semanas">Próximas semanas</SelectItem>
-                    <SelectItem value="explorar">Apenas a explorar</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+                <div className="space-y-1">
+                  <Label className="text-sm">Urgência em resolver este problema</Label>
+                  <Select
+                    value={formData.urgencia}
+                    onValueChange={(value) => setFormData((prev) => ({ ...prev, urgencia: value }))}
+                    required
+                  >
+                    <SelectTrigger className="bg-background h-10">
+                      <SelectValue placeholder="Selecciona uma opção" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-card border-border" position="popper" sideOffset={4}>
+                      <SelectItem value="imediata">Imediata</SelectItem>
+                      <SelectItem value="proximas-semanas">Próximas semanas</SelectItem>
+                      <SelectItem value="explorar">Apenas a explorar</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
 
-              <div className="space-y-1.5">
-                <Label htmlFor="estruturaPastas" className="text-sm">
-                  Estrutura de pastas pretendida
-                </Label>
-                <Input
-                  id="estruturaPastas"
-                  name="estruturaPastas"
-                  placeholder="Ex: ano - cliente - compra/venda - mês"
-                  value={formData.estruturaPastas}
-                  onChange={handleInputChange}
-                  className="bg-background h-10 sm:h-11"
-                />
-              </div>
+                <div className="space-y-1">
+                  <Label htmlFor="estruturaPastas" className="text-sm">
+                    Estrutura de pastas pretendida
+                  </Label>
+                  <Input
+                    id="estruturaPastas"
+                    name="estruturaPastas"
+                    placeholder="Ex: ano - cliente - compra/venda - mês"
+                    value={formData.estruturaPastas}
+                    onChange={handleInputChange}
+                    className="bg-background h-10"
+                  />
+                </div>
 
-              <div className="space-y-1.5">
-                <Label htmlFor="notaExtra" className="text-sm text-muted-foreground">
-                  Mais alguma coisa que gostava que o sistema fizesse ou informação que devíamos saber? (escreva tudo o
-                  que achar necessário)
-                </Label>
-                <Textarea
-                  id="notaExtra"
-                  name="notaExtra"
-                  placeholder="Descreve a tua situação específica..."
-                  value={formData.notaExtra}
-                  onChange={handleInputChange}
-                  className="bg-background min-h-[80px] resize-none"
-                />
-              </div>
+                <div className="space-y-1">
+                  <Label htmlFor="notaExtra" className="text-sm text-muted-foreground leading-tight">
+                    Mais alguma coisa que gostava que o sistema fizesse?
+                  </Label>
+                  <Textarea
+                    id="notaExtra"
+                    name="notaExtra"
+                    placeholder="Descreve a tua situação específica..."
+                    value={formData.notaExtra}
+                    onChange={handleInputChange}
+                    className="bg-background min-h-[70px] resize-none"
+                  />
+                </div>
 
-              <Button type="submit" variant="hero" className="w-full mt-4 h-11 sm:h-12" disabled={isLoading}>
-                {isLoading ? "A enviar..." : "Enviar"}
-              </Button>
-            </form>
-          )}
+                <Button type="submit" variant="hero" className="w-full mt-3 h-11" disabled={isLoading}>
+                  {isLoading ? "A enviar..." : "Enviar"}
+                </Button>
+              </form>
+            )}
+          </div>
         </DialogContent>
       </Dialog>
 
