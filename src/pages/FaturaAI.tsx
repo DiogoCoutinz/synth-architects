@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Mail, TableProperties, Check, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -7,7 +7,14 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { BookerEmbed } from "@calcom/atoms";
+
+// Declare Cal on window for TypeScript
+declare global {
+  interface Window {
+    Cal?: any;
+  }
+}
+
 const benefits = [
   {
     icon: Mail,
@@ -28,8 +35,28 @@ const N8N_WEBHOOK_URL = "https://n8n.diogocoutinho.cloud/webhook/faturasAI";
 const FaturaAI = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [showBooking, setShowBooking] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [calLoaded, setCalLoaded] = useState(false);
+
+  // Load Cal.com script
+  useEffect(() => {
+    if (calLoaded) return;
+    
+    const script = document.createElement("script");
+    script.src = "https://app.cal.com/embed/embed.js";
+    script.async = true;
+    script.onload = () => {
+      if (window.Cal) {
+        window.Cal("init", "implementacaofaturaai", { origin: "https://app.cal.com" });
+        window.Cal.ns.implementacaofaturaai("ui", {
+          hideEventTypeDetails: false,
+          layout: "month_view",
+        });
+        setCalLoaded(true);
+      }
+    };
+    document.head.appendChild(script);
+  }, [calLoaded]);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formData, setFormData] = useState({
     nomeEmpresa: "",
@@ -212,45 +239,30 @@ const FaturaAI = () => {
 
           <div className="overflow-y-auto px-4 sm:px-6 pb-4 sm:pb-6 flex-1">
             {isSubmitted ? (
-              showBooking ? (
-                <div className="py-2 sm:py-4">
-                  <BookerEmbed
-                    eventSlug="implementacaofaturaai"
-                    view="MONTH_VIEW"
-                    username="diogo-coutinho-egeob3"
-                    customClassNames={{
-                      bookerContainer: "border-subtle border rounded-lg",
-                    }}
-                    onCreateBookingSuccess={() => {
-                      console.log("booking created successfully");
-                      setIsFormOpen(false);
-                    }}
-                  />
+              <motion.div
+                className="py-6 sm:py-8 text-center"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                  <Check className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />
                 </div>
-              ) : (
-                <motion.div
-                  className="py-6 sm:py-8 text-center"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3 }}
+                <h3 className="font-heading text-base sm:text-lg mb-2">Formulário enviado!</h3>
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed px-2 mb-6">
+                  Obrigado pelo interesse. Agenda já uma chamada para ver como podemos ajudar.
+                </p>
+                <Button
+                  variant="hero"
+                  className="w-full sm:w-auto"
+                  data-cal-link="diogo-coutinho-eqeob3/implementacaofaturaai"
+                  data-cal-namespace="implementacaofaturaai"
+                  data-cal-config='{"layout":"month_view"}'
                 >
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4 sm:mb-6">
-                    <Check className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />
-                  </div>
-                  <h3 className="font-heading text-base sm:text-lg mb-2">Formulário enviado!</h3>
-                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed px-2 mb-6">
-                    Obrigado pelo interesse. Agenda já uma chamada para ver como podemos ajudar.
-                  </p>
-                  <Button
-                    variant="hero"
-                    className="w-full sm:w-auto"
-                    onClick={() => setShowBooking(true)}
-                  >
-                    <Calendar className="w-4 h-4 mr-2" />
-                    Marcar reunião
-                  </Button>
-                </motion.div>
-              )
+                  <Calendar className="w-4 h-4 mr-2" />
+                  Marcar reunião
+                </Button>
+              </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-2.5 sm:space-y-4 pt-3">
                 <div className="space-y-1">
