@@ -222,7 +222,7 @@ const FaturaAI = () => {
             </DialogTitle>
           </DialogHeader>
 
-          <div className="overflow-y-auto px-4 sm:px-6 pb-4 sm:pb-6 flex-1">
+          <div className="overflow-y-auto px-4 sm:px-6 pb-4 sm:pb-6 flex-1 max-h-[60vh] sm:max-h-none">
             {isSubmitted ? (
               <motion.div
                 className="py-6 sm:py-8 text-center"
