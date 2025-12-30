@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, TableProperties, Check, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -32,31 +32,16 @@ const benefits = [
 
 const N8N_WEBHOOK_URL = "https://n8n.diogocoutinho.cloud/webhook/faturasAI";
 
+const CAL_BOOKING_URL = "https://cal.com/diogo-coutinho-eqeob3/implementacaofaturaai";
+
 const FaturaAI = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [calLoaded, setCalLoaded] = useState(false);
 
-  // Load Cal.com script
-  useEffect(() => {
-    if (calLoaded) return;
-    
-    const script = document.createElement("script");
-    script.src = "https://app.cal.com/embed/embed.js";
-    script.async = true;
-    script.onload = () => {
-      if (window.Cal) {
-        window.Cal("init", "implementacaofaturaai", { origin: "https://app.cal.com" });
-        window.Cal.ns.implementacaofaturaai("ui", {
-          hideEventTypeDetails: false,
-          layout: "month_view",
-        });
-        setCalLoaded(true);
-      }
-    };
-    document.head.appendChild(script);
-  }, [calLoaded]);
+  const handleBookMeeting = () => {
+    window.open(CAL_BOOKING_URL, "_blank");
+  };
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formData, setFormData] = useState({
     nomeEmpresa: "",
@@ -255,9 +240,7 @@ const FaturaAI = () => {
                 <Button
                   variant="hero"
                   className="w-full sm:w-auto"
-                  data-cal-link="diogo-coutinho-eqeob3/implementacaofaturaai"
-                  data-cal-namespace="implementacaofaturaai"
-                  data-cal-config='{"layout":"month_view"}'
+                  onClick={handleBookMeeting}
                 >
                   <Calendar className="w-4 h-4 mr-2" />
                   Marcar reunião
