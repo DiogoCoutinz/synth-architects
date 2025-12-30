@@ -121,15 +121,15 @@ const FaturaAI = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero + Video + CTA - Single focused section */}
-      <section className="py-8 md:py-16 relative min-h-[calc(100vh-80px)]">
+      <section className="py-6 sm:py-8 md:py-16 relative min-h-[calc(100vh-60px)] sm:min-h-[calc(100vh-80px)] flex items-center">
         <div className="absolute inset-0 bg-gradient-hero" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] animate-glow-pulse" />
+        <div className="absolute top-1/4 left-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-primary/10 rounded-full blur-[100px] sm:blur-[120px] animate-glow-pulse" />
 
-        <div className="container px-4 md:px-8 relative z-10">
+        <div className="container px-4 md:px-8 relative z-10 w-full">
           <div className="max-w-4xl mx-auto">
             {/* Headline */}
             <motion.h1
-              className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4 leading-tight text-center px-2"
+              className="font-heading text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 sm:mb-4 leading-snug text-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -138,7 +138,7 @@ const FaturaAI = () => {
             </motion.h1>
 
             <motion.p
-              className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto text-center mb-6 md:mb-8 px-2"
+              className="text-xs sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto text-center mb-4 sm:mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -149,7 +149,7 @@ const FaturaAI = () => {
 
             {/* Video - Immediately visible */}
             <motion.div
-              className="mb-6 md:mb-8"
+              className="mb-4 sm:mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -167,7 +167,7 @@ const FaturaAI = () => {
 
             {/* CTA Button - Right below video */}
             <motion.div
-              className="text-center mb-8 md:mb-10 px-4"
+              className="text-center mb-5 sm:mb-10"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -175,7 +175,7 @@ const FaturaAI = () => {
               <Button
                 variant="hero"
                 size="lg"
-                className="text-sm sm:text-base md:text-lg px-6 sm:px-8 py-5 sm:py-6 w-full sm:w-auto"
+                className="text-sm sm:text-base md:text-lg px-6 sm:px-8 py-4 sm:py-6 w-full sm:w-auto"
                 onClick={() => setIsFormOpen(true)}
               >
                 Quero ver como funciona no meu caso
@@ -184,13 +184,13 @@ const FaturaAI = () => {
 
             {/* Minimal bullets */}
             <motion.div
-              className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 md:gap-6 text-xs sm:text-sm text-muted-foreground px-4"
+              className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-6 text-xs sm:text-sm text-muted-foreground"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
               {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-center gap-2 justify-center sm:justify-start">
+                <div key={index} className="flex items-center gap-2 justify-center">
                   <benefit.icon className="w-4 h-4 text-primary flex-shrink-0" />
                   <span>{benefit.text}</span>
                 </div>
@@ -202,14 +202,14 @@ const FaturaAI = () => {
 
       {/* Form Dialog */}
       <Dialog open={isFormOpen} onOpenChange={setIsFormOpen}>
-        <DialogContent className="w-[calc(100vw-32px)] max-w-lg bg-card border-border max-h-[85vh] p-0 gap-0">
-          <DialogHeader className="px-4 sm:px-6 pt-4 sm:pt-6 pb-2 sticky top-0 bg-card z-10 border-b border-border/50">
-            <DialogTitle className="font-heading text-lg sm:text-xl">
+        <DialogContent className="w-[calc(100vw-24px)] sm:w-[calc(100vw-32px)] max-w-lg bg-card border-border max-h-[90vh] sm:max-h-[85vh] p-0 gap-0 rounded-xl">
+          <DialogHeader className="px-4 sm:px-6 py-3 sm:py-4 sticky top-0 bg-card z-10 border-b border-border/50 rounded-t-xl">
+            <DialogTitle className="font-heading text-base sm:text-xl">
               {isSubmitted ? "Obrigado" : "Fala-me sobre a tua empresa"}
             </DialogTitle>
           </DialogHeader>
 
-          <div className="overflow-y-auto px-4 sm:px-6 pb-4 sm:pb-6">
+          <div className="overflow-y-auto px-4 sm:px-6 pb-4 sm:pb-6 flex-1">
             {isSubmitted ? (
               <motion.div
                 className="py-6 sm:py-8 text-center"
@@ -226,9 +226,9 @@ const FaturaAI = () => {
                 </p>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4 pt-3">
+              <form onSubmit={handleSubmit} className="space-y-2.5 sm:space-y-4 pt-3">
                 <div className="space-y-1">
-                  <Label htmlFor="nomeEmpresa" className="text-sm">
+                  <Label htmlFor="nomeEmpresa" className="text-xs sm:text-sm">
                     Nome da empresa
                   </Label>
                   <Input
@@ -237,12 +237,12 @@ const FaturaAI = () => {
                     value={formData.nomeEmpresa}
                     onChange={handleInputChange}
                     required
-                    className="bg-background h-10"
+                    className="bg-background h-9 sm:h-10 text-sm"
                   />
                 </div>
 
                 <div className="space-y-1">
-                  <Label htmlFor="email" className="text-sm">
+                  <Label htmlFor="email" className="text-xs sm:text-sm">
                     Email
                   </Label>
                   <Input
@@ -252,15 +252,15 @@ const FaturaAI = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className={`bg-background h-10 ${errors.email ? "border-destructive" : ""}`}
+                    className={`bg-background h-9 sm:h-10 text-sm ${errors.email ? "border-destructive" : ""}`}
                   />
                   {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
                 </div>
 
                 <div className="space-y-1">
-                  <Label htmlFor="telemovel" className="text-sm">
+                  <Label htmlFor="telemovel" className="text-xs sm:text-sm">
                     Telemóvel <span className="text-destructive">*</span>
-                    <span className="text-muted-foreground font-normal text-xs ml-1">(WhatsApp)</span>
+                    <span className="text-muted-foreground font-normal text-[10px] sm:text-xs ml-1">(WhatsApp)</span>
                   </Label>
                   <Input
                     id="telemovel"
@@ -270,13 +270,13 @@ const FaturaAI = () => {
                     value={formData.telemovel}
                     onChange={handleInputChange}
                     required
-                    className={`bg-background h-10 ${errors.telemovel ? "border-destructive" : ""}`}
+                    className={`bg-background h-9 sm:h-10 text-sm ${errors.telemovel ? "border-destructive" : ""}`}
                   />
                   {errors.telemovel && <p className="text-xs text-destructive">{errors.telemovel}</p>}
                 </div>
 
                 <div className="space-y-1">
-                  <Label htmlFor="facturacaoAnual" className="text-sm">
+                  <Label htmlFor="facturacaoAnual" className="text-xs sm:text-sm">
                     Facturação anual aproximada
                   </Label>
                   <Input
@@ -285,21 +285,21 @@ const FaturaAI = () => {
                     value={formData.facturacaoAnual}
                     onChange={handleInputChange}
                     required
-                    className="bg-background h-10"
+                    className="bg-background h-9 sm:h-10 text-sm"
                   />
                 </div>
 
                 <div className="space-y-1">
-                  <Label className="text-sm">Número médio de faturas por mês</Label>
+                  <Label className="text-xs sm:text-sm">Número médio de faturas por mês</Label>
                   <Select
                     value={formData.numeroFaturas}
                     onValueChange={(value) => setFormData((prev) => ({ ...prev, numeroFaturas: value }))}
                     required
                   >
-                    <SelectTrigger className="bg-background h-10">
+                    <SelectTrigger className="bg-background h-9 sm:h-10 text-sm">
                       <SelectValue placeholder="Selecciona uma opção" />
                     </SelectTrigger>
-                    <SelectContent className="bg-card border-border" position="popper" sideOffset={4}>
+                    <SelectContent className="bg-card border-border z-50" position="popper" sideOffset={4}>
                       <SelectItem value="0-50">0 - 50</SelectItem>
                       <SelectItem value="50-200">50 - 200</SelectItem>
                       <SelectItem value="200-500">200 - 500</SelectItem>
@@ -309,16 +309,16 @@ const FaturaAI = () => {
                 </div>
 
                 <div className="space-y-1">
-                  <Label className="text-sm">Urgência em resolver este problema</Label>
+                  <Label className="text-xs sm:text-sm">Urgência em resolver este problema</Label>
                   <Select
                     value={formData.urgencia}
                     onValueChange={(value) => setFormData((prev) => ({ ...prev, urgencia: value }))}
                     required
                   >
-                    <SelectTrigger className="bg-background h-10">
+                    <SelectTrigger className="bg-background h-9 sm:h-10 text-sm">
                       <SelectValue placeholder="Selecciona uma opção" />
                     </SelectTrigger>
-                    <SelectContent className="bg-card border-border" position="popper" sideOffset={4}>
+                    <SelectContent className="bg-card border-border z-50" position="popper" sideOffset={4}>
                       <SelectItem value="imediata">Imediata</SelectItem>
                       <SelectItem value="proximas-semanas">Próximas semanas</SelectItem>
                       <SelectItem value="explorar">Apenas a explorar</SelectItem>
@@ -327,7 +327,7 @@ const FaturaAI = () => {
                 </div>
 
                 <div className="space-y-1">
-                  <Label htmlFor="estruturaPastas" className="text-sm">
+                  <Label htmlFor="estruturaPastas" className="text-xs sm:text-sm">
                     Estrutura de pastas pretendida
                   </Label>
                   <Input
@@ -336,12 +336,12 @@ const FaturaAI = () => {
                     placeholder="Ex: ano - cliente - compra/venda - mês"
                     value={formData.estruturaPastas}
                     onChange={handleInputChange}
-                    className="bg-background h-10"
+                    className="bg-background h-9 sm:h-10 text-sm"
                   />
                 </div>
 
                 <div className="space-y-1">
-                  <Label htmlFor="notaExtra" className="text-sm text-muted-foreground leading-tight">
+                  <Label htmlFor="notaExtra" className="text-xs sm:text-sm text-muted-foreground leading-tight">
                     Mais alguma coisa que gostava que o sistema fizesse?
                   </Label>
                   <Textarea
@@ -350,11 +350,11 @@ const FaturaAI = () => {
                     placeholder="Descreve a tua situação específica..."
                     value={formData.notaExtra}
                     onChange={handleInputChange}
-                    className="bg-background min-h-[70px] resize-none"
+                    className="bg-background min-h-[60px] sm:min-h-[70px] resize-none text-sm"
                   />
                 </div>
 
-                <Button type="submit" variant="hero" className="w-full mt-3 h-11" disabled={isLoading}>
+                <Button type="submit" variant="hero" className="w-full mt-2 sm:mt-3 h-10 sm:h-11 text-sm" disabled={isLoading}>
                   {isLoading ? "A enviar..." : "Enviar"}
                 </Button>
               </form>
@@ -364,7 +364,7 @@ const FaturaAI = () => {
       </Dialog>
 
       {/* Footer */}
-      <footer className="py-8 md:py-12 border-t border-border/50">
+      <footer className="py-4 sm:py-8 md:py-12 border-t border-border/50">
         <div className="container px-4 md:px-8">
           <div className="text-center text-xs sm:text-sm text-muted-foreground">
             © {new Date().getFullYear()} AI Systems & Automation
