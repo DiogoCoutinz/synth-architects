@@ -340,12 +340,15 @@ const CRMFormDialog = ({ open, onOpenChange }: CRMFormDialogProps) => {
                 <Label htmlFor="dor_principal" className="text-xs sm:text-sm">
                   Onde posso ajudar? <span className="text-destructive">*</span>
                 </Label>
+                <p className="text-[10px] sm:text-xs text-muted-foreground leading-snug">
+                  Sê o mais detalhado possível! Que processos te consomem tempo? Que tarefas repetitivas tens? Que ideias já pensaste para automatizar?
+                </p>
                 <Textarea
                   id="dor_principal"
                   name="dor_principal"
                   value={formData.dor_principal}
                   onChange={handleInputChange}
-                  placeholder="Que processos queres automatizar? Que problema queres resolver com AI?"
+                  placeholder="Ex: Perco 2h por dia a responder emails, quero um chatbot para suporte, preciso de extrair dados de PDFs automaticamente..."
                   className={`bg-background min-h-[80px] resize-none text-sm ${errors.dor_principal ? "border-destructive" : ""}`}
                 />
                 {errors.dor_principal && <p className="text-xs text-destructive">{errors.dor_principal}</p>}
