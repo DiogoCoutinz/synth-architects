@@ -63,7 +63,7 @@ const HeroSection = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.2 }}
                 >
-                  Construímos o Futuro da Sua Empresa com{" "}
+                  Construímos o Futuro da sua Empresa com{" "}
                   <span className="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
                     AI
                   </span>

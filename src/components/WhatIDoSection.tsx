@@ -38,7 +38,7 @@ const services = [
     image: "/1on1.png",
     buttonText: "Marca Já",
     buttonAction: "cal" as const,
-    calLink: "CAL_LINK_PLACEHOLDER"
+    calLink: "https://cal.com/diogo-coutinho-eqeob3/1on1"
   }
 ];
 

@@ -1,0 +1,20 @@
+{
+  "name": "Diogo Coutinho - Automação & IA",
+  "short_name": "Diogo Coutinho",
+  "description": "Especialista em automação e inteligência artificial. Transformamos processos complexos em sistemas automatizados inteligentes.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#06b6d4",
+  "lang": "pt-PT",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
+
