@@ -26,18 +26,20 @@ const Navbar = () => {
   return (
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? "bg-background/60 backdrop-blur-2xl border-b border-primary/10" : "bg-transparent"
+        isScrolled 
+          ? "bg-white/80 backdrop-blur-xl border-b border-slate-200/60 shadow-sm" 
+          : "bg-transparent"
       }`}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="container mx-auto px-6 md:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <motion.button 
             onClick={() => scrollToSection("hero")} 
-            className="text-lg font-heading font-bold tracking-tight"
+            className="text-xl font-heading font-bold tracking-tight text-slate-900"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -45,23 +47,23 @@ const Navbar = () => {
           </motion.button>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-12">
+          <div className="hidden md:flex items-center gap-10">
             <button
               onClick={() => scrollToSection("servicos")}
-              className="text-xs uppercase tracking-wider text-muted-foreground hover:text-primary transition-all duration-300"
+              className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors duration-200"
             >
               Serviços
             </button>
             <button
               onClick={() => scrollToSection("projectos")}
-              className="text-xs uppercase tracking-wider text-muted-foreground hover:text-primary transition-all duration-300"
+              className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors duration-200"
             >
               Produtos
             </button>
             <Button 
               onClick={() => scrollToSection("contacto")} 
               size="sm"
-              className="bg-transparent border border-primary/30 hover:bg-primary/10 hover:border-primary/50 transition-all duration-300"
+              className="bg-slate-900 hover:bg-slate-800 text-white border-0 px-6 h-10"
             >
               Contacto
             </Button>
@@ -69,10 +71,10 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-foreground"
+            className="md:hidden text-slate-900"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
@@ -80,7 +82,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <motion.div
-          className="md:hidden bg-background/95 backdrop-blur-2xl border-t border-primary/10"
+          className="md:hidden bg-white/95 backdrop-blur-xl border-t border-slate-200"
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
@@ -88,17 +90,21 @@ const Navbar = () => {
           <div className="container mx-auto px-6 py-6 space-y-4">
             <button
               onClick={() => scrollToSection("servicos")}
-              className="block w-full text-left py-2 text-xs uppercase tracking-wider text-muted-foreground"
+              className="block w-full text-left py-3 text-sm font-medium text-slate-600"
             >
               Serviços
             </button>
             <button
               onClick={() => scrollToSection("projectos")}
-              className="block w-full text-left py-2 text-xs uppercase tracking-wider text-muted-foreground"
+              className="block w-full text-left py-3 text-sm font-medium text-slate-600"
             >
               Produtos
             </button>
-            <Button onClick={() => scrollToSection("contacto")} size="sm" className="w-full">
+            <Button 
+              onClick={() => scrollToSection("contacto")} 
+              size="sm" 
+              className="w-full bg-slate-900 hover:bg-slate-800 text-white"
+            >
               Contacto
             </Button>
           </div>

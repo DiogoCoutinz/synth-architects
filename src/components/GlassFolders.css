@@ -1,0 +1,179 @@
+.folder-btns {
+  display: grid;
+  grid-gap: 4em;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin: auto;
+  padding: 3em 0;
+  overflow: visible;
+  max-width: 1200px;
+}
+
+.folder-btn {
+  background-color: transparent;
+  outline: none;
+  position: relative;
+  width: 100%;
+  min-height: 10em;
+  perspective: 32em;
+  transform-style: preserve-3d;
+  -webkit-tap-highlight-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2em 1em;
+}
+
+.folder-btn--disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.folder-btn__back,
+.folder-btn__front,
+.folder-btn__info {
+  transition:
+    opacity 0.4s cubic-bezier(0.83, 0, 0.17, 1),
+    transform 0.4s cubic-bezier(0.83, 0, 0.17, 1);
+}
+
+.folder-btn__back,
+.folder-btn__front {
+  border-radius: 1.5em;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6em;
+  height: 6em;
+}
+
+.folder-btn__back {
+  box-shadow: 0.75em -0.75em 1em hsla(223, 10%, 10%, 0.2);
+  display: block;
+  transform: translateX(-50%) rotate(15deg);
+  transform-origin: 100% 100%;
+  will-change: transform;
+}
+
+.folder-btn__front {
+  background-color: hsla(0, 0%, 100%, 0.15);
+  box-shadow: 0 0 0 0.15em hsla(0, 0%, 100%, 0.3) inset;
+  backdrop-filter: blur(1em);
+  -webkit-backdrop-filter: blur(1em);
+  -moz-backdrop-filter: blur(1em);
+  display: flex;
+  transform: translateX(-50%);
+  transform-origin: 80% 50%;
+  will-change: transform;
+}
+
+.folder-btn__icon {
+  margin: auto;
+  width: 2.5em;
+  height: 2.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5em;
+}
+
+.folder-btn__info {
+  margin-top: 8em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  align-items: center;
+  opacity: 0.9;
+  transform: translateY(0);
+}
+
+.folder-btn__label {
+  font-size: 1.25em;
+  font-weight: 700;
+  white-space: nowrap;
+  text-align: center;
+  color: #1e293b;
+  font-family: var(--font-heading, system-ui);
+}
+
+.folder-btn__subtitle {
+  font-size: 0.9em;
+  text-align: center;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.folder-btn__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.35em 0.75em;
+  background: #f1f5f9;
+  border-radius: 999px;
+  font-size: 0.75em;
+  color: #64748b;
+  margin-top: 0.5em;
+  font-weight: 600;
+}
+
+.folder-btn:not(.folder-btn--disabled):focus-visible .folder-btn__back,
+.folder-btn:not(.folder-btn--disabled):hover .folder-btn__back {
+  transform: translateX(-50%) rotate(25deg) translate3d(-0.75em, -0.75em, 0.75em);
+}
+
+.folder-btn:not(.folder-btn--disabled):focus-visible .folder-btn__front,
+.folder-btn:not(.folder-btn--disabled):hover .folder-btn__front {
+  transform: translateX(-50%) translate3d(0, 0, 2.5em);
+}
+
+.folder-btn:not(.folder-btn--disabled):focus-visible .folder-btn__info,
+.folder-btn:not(.folder-btn--disabled):hover .folder-btn__info {
+  opacity: 1;
+  transform: translateY(-5%);
+}
+
+.folder-btn:not(.folder-btn--disabled):hover .folder-btn__label {
+  color: #0891b2;
+}
+
+@media (min-width: 768px) {
+  .folder-btns {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5em;
+  }
+}
+
+@media (max-width: 767px) {
+  .folder-btns {
+    grid-gap: 3em;
+    padding: 2em 0;
+  }
+  
+  .folder-btn {
+    min-height: 8em;
+    padding: 1.5em 1em;
+  }
+  
+  .folder-btn__back,
+  .folder-btn__front {
+    width: 5em;
+    height: 5em;
+  }
+  
+  .folder-btn__info {
+    margin-top: 7em;
+  }
+  
+  .folder-btn__label {
+    font-size: 1.1em;
+  }
+  
+  .folder-btn__subtitle {
+    font-size: 0.85em;
+  }
+}
+
