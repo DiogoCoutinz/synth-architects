@@ -184,7 +184,7 @@ const CRMFormDialog = ({ open, onOpenChange }: CRMFormDialogProps) => {
               </div>
               <h3 className="font-heading text-lg sm:text-xl mb-3">Formulário enviado com sucesso!</h3>
               <p className="text-muted-foreground leading-relaxed px-2">
-                Obrigado pelo contacto. Respondo em menos de 24h.
+                Vou analisar a informação e entro em contacto caso esta solução faça sentido para a tua empresa.
               </p>
             </motion.div>
           ) : (
