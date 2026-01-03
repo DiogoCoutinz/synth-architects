@@ -80,7 +80,7 @@ const ContactSection = ({ onContactClick }: { onContactClick?: () => void }) => 
             <span className="text-slate-300">•</span>
 
             <motion.a
-              href="https://wa.me/351928362223"
+              href="https://wa.me/351928362223?text=Olá%20Diogo!%20Vi%20o%20teu%20site%20e%20quero%20mais%20informações%20sobre%20as%20tuas%20soluções%20de%20AI%20e%20automação."
               target="_blank"
               rel="noopener noreferrer"
               className="cursor-target flex items-center gap-2 hover:text-cyan-600 transition-colors"
