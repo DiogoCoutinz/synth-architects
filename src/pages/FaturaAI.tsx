@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import LiquidEther from "@/components/LiquidEther";
 
 // Declare Cal on window for TypeScript
 declare global {
@@ -134,8 +135,31 @@ const FaturaAI = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero + Video + CTA - Single focused section */}
-      <section className="py-6 sm:py-8 md:py-16 relative min-h-[calc(100vh-60px)] sm:min-h-[calc(100vh-80px)] flex items-center">
-        <div className="absolute inset-0 bg-gradient-hero" />
+      <section className="py-6 sm:py-8 md:py-16 relative min-h-[calc(100vh-60px)] sm:min-h-[calc(100vh-80px)] flex items-center overflow-hidden">
+        {/* Liquid Ether Background */}
+        <div className="absolute inset-0 opacity-20">
+          <LiquidEther
+            colors={['#06b6d4', '#0ea5e9', '#8b5cf6']}
+            mouseForce={40}
+            cursorSize={160}
+            isViscous={false}
+            viscous={15}
+            iterationsViscous={15}
+            iterationsPoisson={15}
+            resolution={0.5}
+            isBounce={false}
+            autoDemo={true}
+            autoSpeed={0.5}
+            autoIntensity={2.5}
+            takeoverDuration={0.3}
+            autoResumeDelay={3000}
+            autoRampDuration={0.6}
+          />
+        </div>
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-white/40" />
+        <div className="absolute inset-0 bg-gradient-hero opacity-30" />
         <div className="absolute top-1/4 left-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-primary/10 rounded-full blur-[100px] sm:blur-[120px] animate-glow-pulse" />
 
         <div className="container px-4 md:px-8 relative z-10 w-full">

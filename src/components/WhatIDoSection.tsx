@@ -2,7 +2,18 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
-const services = [
+type ServiceAction = "contact" | "cal" | "page";
+
+const services: Array<{
+  title: string;
+  description: string;
+  placeholder: string;
+  borderGradient: string;
+  image: string;
+  buttonText: string;
+  buttonAction: ServiceAction;
+  calLink?: string;
+}> = [
   {
     title: "AI Partner",
     description: "Parceria dedicada com reuniões semanais, automação contínua de processos e otimização constante das tuas operações",
@@ -10,7 +21,7 @@ const services = [
     borderGradient: "from-cyan-400 via-blue-400 to-indigo-400",
     image: "/aipartner.png",
     buttonText: "Agendar Chamada",
-    buttonAction: "contact" as const
+    buttonAction: "contact"
   },
   {
     title: "Automação Simples",
@@ -19,7 +30,7 @@ const services = [
     borderGradient: "from-green-400 via-emerald-400 to-teal-400",
     image: "/automacao.png",
     buttonText: "Agendar Chamada",
-    buttonAction: "contact" as const
+    buttonAction: "contact"
   },
   {
     title: "Formação & Palestras",
@@ -28,7 +39,7 @@ const services = [
     borderGradient: "from-violet-400 via-purple-400 to-fuchsia-400",
     image: "/formacao.png",
     buttonText: "Agendar Chamada",
-    buttonAction: "contact" as const
+    buttonAction: "contact"
   },
   {
     title: "Consultoria 1-on-1",
@@ -37,8 +48,8 @@ const services = [
     borderGradient: "from-orange-400 via-amber-400 to-yellow-400",
     image: "/1on1.png",
     buttonText: "Marca Já",
-    buttonAction: "cal" as const,
-    calLink: "https://cal.com/diogo-coutinho-eqeob3/1on1"
+    buttonAction: "page",
+    calLink: "/1on1"
   }
 ];
 
@@ -138,7 +149,9 @@ const WhatIDoSection = ({ onContactClick }: { onContactClick?: () => void }) => 
                       variant="outline"
                       className="w-full cursor-target group/btn relative overflow-hidden border-slate-700 hover:border-slate-600 bg-slate-800/50 hover:bg-slate-800 transition-all duration-300 text-xs md:text-sm h-9 md:h-10"
                       onClick={() => {
-                        if (service.buttonAction === "cal" && service.calLink) {
+                        if (service.buttonAction === "page" && service.calLink) {
+                          window.location.href = service.calLink;
+                        } else if (service.buttonAction === "cal" && service.calLink) {
                           window.open(service.calLink, "_blank");
                         } else if (service.buttonAction === "contact" && onContactClick) {
                           onContactClick();
