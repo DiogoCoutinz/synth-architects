@@ -43,7 +43,7 @@ const services: Array<{
   },
   {
     title: "Consultoria 1-on-1",
-    description: "1 hora de sessão comigo onde tiro todas as tuas dúvidas e te ensino a melhorar no n8n!!",
+    description: "Sessão prática comigo para desbloquear problemas reais em automação & AI. Ajudo-te a estruturar, construir e fazer debug de soluções (n8n, AI agents, construir soluções reais, use cases reais).",
     placeholder: "💡",
     borderGradient: "from-orange-400 via-amber-400 to-yellow-400",
     image: "/1on1.png",
