@@ -91,7 +91,7 @@ const HeroSection = () => {
                   size="lg"
                   className="group h-14 px-10 text-lg bg-slate-900 hover:bg-slate-800 text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
                 >
-                  Falar Comigo
+                  Falar com a nossa equipa
                   <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </Button>
 

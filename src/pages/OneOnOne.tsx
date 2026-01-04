@@ -34,7 +34,7 @@ const steps = [
   {
     number: "3",
     title: "Sessão prática",
-    description: "1-on-1 contigo"
+    description: "1-on-1 com especialista"
   }
 ];
 
