@@ -6,7 +6,7 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://www.diogocoutinho.com/</loc>
+    <loc>https://diogocoutinho.com/</loc>
     <lastmod>2026-01-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -14,7 +14,7 @@
 
   <!-- FaturaAI Product Page -->
   <url>
-    <loc>https://www.diogocoutinho.com/faturaAI</loc>
+    <loc>https://diogocoutinho.com/faturaAI</loc>
     <lastmod>2026-01-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -22,7 +22,7 @@
 
   <!-- 1-on-1 Consultancy Page -->
   <url>
-    <loc>https://www.diogocoutinho.com/1on1</loc>
+    <loc>https://diogocoutinho.com/1on1</loc>
     <lastmod>2026-01-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -30,7 +30,7 @@
 
   <!-- Services Section -->
   <url>
-    <loc>https://www.diogocoutinho.com/#servicos</loc>
+    <loc>https://diogocoutinho.com/#servicos</loc>
     <lastmod>2026-01-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -38,7 +38,7 @@
 
   <!-- Products Section -->
   <url>
-    <loc>https://www.diogocoutinho.com/#projectos</loc>
+    <loc>https://diogocoutinho.com/#projectos</loc>
     <lastmod>2026-01-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -46,7 +46,7 @@
 
   <!-- Contact Section -->
   <url>
-    <loc>https://www.diogocoutinho.com/#contacto</loc>
+    <loc>https://diogocoutinho.com/#contacto</loc>
     <lastmod>2026-01-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

@@ -1,11 +1,4 @@
 {
-  "redirects": [
-    {
-      "source": "https://diogocoutinho.com/:path*",
-      "destination": "https://www.diogocoutinho.com/:path*",
-      "permanent": true
-    }
-  ],
   "rewrites": [
     {
       "source": "/(.*)",
@@ -62,5 +55,6 @@
     }
   ]
 }
+
 
 

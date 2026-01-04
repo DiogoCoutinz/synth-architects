@@ -4,7 +4,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://www.diogocoutinho.com/sitemap.xml
+Sitemap: https://diogocoutinho.com/sitemap.xml
 
 # Block common bots
 User-agent: GPTBot

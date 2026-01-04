@@ -10,6 +10,18 @@ const PaymentSuccess = () => {
   const [redirecting, setRedirecting] = useState(false);
 
   useEffect(() => {
+    // Impedir que o Google indexe esta página
+    const meta = document.createElement('meta');
+    meta.name = 'robots';
+    meta.content = 'noindex, nofollow';
+    document.head.appendChild(meta);
+
+    return () => {
+      document.head.removeChild(meta);
+    };
+  }, []);
+
+  useEffect(() => {
     // Countdown timer
     if (countdown > 0) {
       const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
@@ -139,4 +151,5 @@ const PaymentSuccess = () => {
 };
 
 export default PaymentSuccess;
+
 

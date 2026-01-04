@@ -43,7 +43,7 @@ const services: Array<{
   },
   {
     title: "Consultoria 1-on-1",
-    description: "Sessão prática comigo para desbloquear problemas reais em automação & AI. Ajudo-te a estruturar, construir e fazer debug de soluções (n8n, AI agents, construir soluções reais, use cases reais).",
+    description: "Sessão prática focada em resultados. Ajudo-te a estruturar e construir soluções reais: desde AI Agents e automações complexas ao desenvolvimento de plataformas e websites inteligentes.",
     placeholder: "💡",
     borderGradient: "from-orange-400 via-amber-400 to-yellow-400",
     image: "/1on1.png",
