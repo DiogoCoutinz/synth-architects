@@ -31,12 +31,12 @@ const steps = [
     title: "Escolher horário",
     description: "Acesso imediato"
   },
-  {
-    number: "3",
-    title: "Sessão prática",
-    description: "1-on-1 com especialista"
-  }
-];
+    {
+      number: "3",
+      title: "Sessão prática",
+      description: "1-on-1 com especialista"
+    }
+  ];
 
 const OneOnOne = () => {
   const handlePayment = () => {

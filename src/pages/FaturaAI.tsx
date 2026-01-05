@@ -322,20 +322,28 @@ const FaturaAI = () => {
 
                 <div className="space-y-1">
                   <Label htmlFor="facturacaoAnual" className="text-xs sm:text-sm">
-                    Facturação anual aproximada
+                    Facturação anual aproximada <span className="text-destructive">*</span>
                   </Label>
-                  <Input
-                    id="facturacaoAnual"
-                    name="facturacaoAnual"
+                  <Select
                     value={formData.facturacaoAnual}
-                    onChange={handleInputChange}
+                    onValueChange={(value) => setFormData((prev) => ({ ...prev, facturacaoAnual: value }))}
                     required
-                    className="bg-background h-9 sm:h-10 text-sm"
-                  />
+                  >
+                    <SelectTrigger className="bg-background h-9 sm:h-10 text-sm">
+                      <SelectValue placeholder="Selecciona a faixa" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-card border-border z-50" position="popper" sideOffset={4}>
+                      <SelectItem value="ate-100k">Até 100.000€</SelectItem>
+                      <SelectItem value="100k-500k">100k€ – 500k€</SelectItem>
+                      <SelectItem value="500k-2M">500k€ – 2M€</SelectItem>
+                      <SelectItem value="2M-5M">2M€ – 5M€</SelectItem>
+                      <SelectItem value="5M+">Mais de 5 Milhões €</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 <div className="space-y-1">
-                  <Label className="text-xs sm:text-sm">Número médio de faturas por mês</Label>
+                  <Label className="text-xs sm:text-sm">Número médio de faturas por mês <span className="text-destructive">*</span></Label>
                   <Select
                     value={formData.numeroFaturas}
                     onValueChange={(value) => setFormData((prev) => ({ ...prev, numeroFaturas: value }))}
@@ -348,7 +356,8 @@ const FaturaAI = () => {
                       <SelectItem value="0-50">0 - 50</SelectItem>
                       <SelectItem value="50-200">50 - 200</SelectItem>
                       <SelectItem value="200-500">200 - 500</SelectItem>
-                      <SelectItem value="500+">500+</SelectItem>
+                      <SelectItem value="500-1000">500 - 1000</SelectItem>
+                      <SelectItem value="1000+">Mais de 1000</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -372,13 +381,13 @@ const FaturaAI = () => {
                 </div>
 
                 <div className="space-y-1">
-                  <Label htmlFor="estruturaPastas" className="text-xs sm:text-sm">
-                    Estrutura de pastas pretendida
+                  <Label htmlFor="estruturaPastas" className="text-xs sm:text-sm text-muted-foreground">
+                    Estrutura de pastas pretendida (Opcional)
                   </Label>
                   <Input
                     id="estruturaPastas"
                     name="estruturaPastas"
-                    placeholder="Ex: ano - cliente - compra/venda - mês"
+                    placeholder="Ex: Ano > Fornecedor > Mês"
                     value={formData.estruturaPastas}
                     onChange={handleInputChange}
                     className="bg-background h-9 sm:h-10 text-sm"
@@ -399,9 +408,12 @@ const FaturaAI = () => {
                   />
                 </div>
 
-                <Button type="submit" variant="hero" className="w-full mt-2 sm:mt-3 h-10 sm:h-11 text-sm" disabled={isLoading}>
+                <Button type="submit" variant="hero" className="w-full mt-2 sm:mt-3 h-10 sm:h-11 text-sm shadow-lg shadow-primary/20" disabled={isLoading}>
                   {isLoading ? "A enviar..." : "Enviar"}
                 </Button>
+                <p className="text-[10px] text-center text-muted-foreground mt-2">
+                  🔒 Os seus dados estão seguros e serão usados apenas para preparar a demonstração.
+                </p>
               </form>
             )}
           </div>
