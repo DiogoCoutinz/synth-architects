@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import WhatIDoSection from "@/components/WhatIDoSection";
 import ProductsSection from "@/components/ProductsSection";
+import CaseStudies from "@/components/CaseStudies";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import CRMFormDialog from "@/components/CRMFormDialog";
@@ -53,6 +54,7 @@ const Index = () => {
       )}
       <WhatIDoSection onContactClick={() => setIsFormOpen(true)} />
       <ProductsSection />
+      <CaseStudies />
       <ContactSection onContactClick={() => setIsFormOpen(true)} />
       <Footer />
       <CRMFormDialog open={isFormOpen} onOpenChange={setIsFormOpen} />

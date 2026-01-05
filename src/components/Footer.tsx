@@ -84,7 +84,7 @@ const Footer = () => {
             </a>
             <a 
               href="https://wa.me/351928362223?text=Olá%20Diogo!%20Vi%20o%20teu%20site%20e%20quero%20mais%20informações%20sobre%20as%20tuas%20soluções%20de%20AI%20e%20automação."
-              target="_blank"
+              target="_blank" 
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-xl border border-slate-200 flex items-center justify-center hover:border-cyan-500/50 hover:bg-cyan-50 text-slate-600 hover:text-cyan-600 transition-all duration-300"
               aria-label="WhatsApp"

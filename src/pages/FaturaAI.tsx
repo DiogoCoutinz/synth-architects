@@ -240,11 +240,11 @@ const FaturaAI = () => {
       {/* Form Dialog */}
       <Dialog open={isFormOpen} onOpenChange={setIsFormOpen}>
         <DialogContent className="w-[calc(100vw-24px)] sm:w-[calc(100vw-32px)] max-w-lg bg-card border-border max-h-[90vh] sm:max-h-[85vh] p-0 gap-0 rounded-xl">
-        <DialogHeader className="px-4 sm:px-6 py-3 sm:py-4 sticky top-0 bg-card z-10 border-b border-border/50 rounded-t-xl">
-          <DialogTitle className="font-heading text-base sm:text-xl">
+          <DialogHeader className="px-4 sm:px-6 py-3 sm:py-4 sticky top-0 bg-card z-10 border-b border-border/50 rounded-t-xl">
+            <DialogTitle className="font-heading text-base sm:text-xl">
             {isSubmitted ? "Obrigado" : "Fale-nos sobre a sua empresa"}
-          </DialogTitle>
-        </DialogHeader>
+            </DialogTitle>
+          </DialogHeader>
 
           <div className="overflow-y-auto px-4 sm:px-6 pb-4 sm:pb-6 flex-1 max-h-[60vh] sm:max-h-none">
             {isSubmitted ? (

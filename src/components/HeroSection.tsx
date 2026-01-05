@@ -47,8 +47,84 @@ const HeroSection = () => {
           }}
         />
 
-        <div className="container relative z-10 mx-auto px-6 md:px-8 py-20">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
+        <div className="container relative z-10 mx-auto px-6 md:px-8 py-12 md:py-20">
+          {/* MOBILE LAYOUT */}
+          <div className="lg:hidden flex flex-col items-center text-center space-y-8 max-w-lg mx-auto">
+            {/* Title */}
+            <motion.h1 
+              className="font-heading text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 leading-tight"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+            >
+              Construímos o Futuro da sua Empresa com{" "}
+              <span className="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
+                AI
+              </span>
+            </motion.h1>
+
+            {/* Subtitle - Shorter for mobile */}
+            <motion.p 
+              className="text-base text-slate-600 leading-relaxed max-w-md"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+            >
+              Transformamos processos complexos em sistemas automatizados inteligentes.
+            </motion.p>
+
+            {/* CTA Button - Big and Easy to Tap */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="w-full"
+            >
+              <Button 
+                onClick={() => setIsFormOpen(true)} 
+                size="lg"
+                className="group w-full h-14 px-8 text-lg bg-slate-900 hover:bg-slate-800 text-white shadow-xl hover:shadow-2xl transition-all duration-300"
+              >
+                Falar com a nossa equipa
+                <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </motion.div>
+
+            {/* Image - Visible on Mobile */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="relative w-full max-w-sm mt-8"
+            >
+              <img
+                src="/landing.png"
+                alt="AI Workflow Layers"
+                className="w-full h-auto drop-shadow-2xl"
+              />
+              
+              {/* Subtle glow */}
+              <div className="absolute inset-0 -z-10">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-cyan-400/20 rounded-full blur-3xl" />
+              </div>
+            </motion.div>
+
+            {/* Metric - Below Image */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="flex items-center gap-3 pt-4"
+            >
+              <div className="text-4xl font-bold text-slate-900">+50</div>
+              <div className="text-sm text-slate-600 leading-tight text-left">
+                Soluções<br />Implementadas
+              </div>
+            </motion.div>
+          </div>
+
+          {/* DESKTOP LAYOUT */}
+          <div className="hidden lg:grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
             {/* Left: Content */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -115,7 +191,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="relative hidden lg:flex items-center justify-center"
+              className="relative flex items-center justify-center"
             >
               <div className="relative w-full max-w-2xl">
                 <motion.img

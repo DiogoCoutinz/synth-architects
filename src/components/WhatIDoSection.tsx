@@ -129,9 +129,9 @@ const WhatIDoSection = ({ onContactClick }: { onContactClick?: () => void }) => 
                       ) : (
                         <>
                           <span className="text-4xl md:text-5xl relative z-10">{service.placeholder}</span>
-                          <div className="absolute bottom-2 right-2 text-slate-600 text-xs font-mono">
-                            placeholder
-                          </div>
+                      <div className="absolute bottom-2 right-2 text-slate-600 text-xs font-mono">
+                        placeholder
+                      </div>
                         </>
                       )}
                     </div>

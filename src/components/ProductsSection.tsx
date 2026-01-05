@@ -64,12 +64,12 @@ const ProductsSection = () => {
             transition={{ duration: 0.8 }}
           >
             <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 tracking-tight text-slate-900 px-4">
-              Produtos
+            Produtos
             </h2>
             <p className="text-base md:text-lg lg:text-xl text-slate-600 max-w-2xl mx-auto px-4">
               Explora as soluções que desenvolvi para automatizar e transformar negócios
             </p>
-          </motion.div>
+                    </motion.div>
 
           <GlassFolders items={folders} />
         </motion.div>
