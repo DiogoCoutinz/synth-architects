@@ -8,6 +8,7 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import CRMFormDialog from "@/components/CRMFormDialog";
 import TargetCursor from "@/components/TargetCursor";
+import SEO from "@/components/SEO";
 
 const Index = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -39,6 +40,10 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="Soluções de Inteligência Artificial em Portugal"
+        description="Especialista em automação e inteligência artificial em Lisboa. Transformamos processos complexos em sistemas automatizados inteligentes. Consultoria, implementação e formação em AI e n8n."
+      />
       <Navbar />
       <div ref={heroRef}>
         <HeroSection />

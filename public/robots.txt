@@ -1,37 +1,19 @@
 # robots.txt - Diogo Coutinho - Automação & IA
-
 User-agent: *
 Allow: /
+Disallow: /1on1/success
 
-# Sitemap
-Sitemap: https://diogocoutinho.com/sitemap.xml
-
-# Block common bots
+# Block AI scrapers to preserve content value (optional, keeping as per your current config)
 User-agent: GPTBot
 Disallow: /
-
 User-agent: ChatGPT-User
 Disallow: /
-
 User-agent: CCBot
 Disallow: /
-
 User-agent: anthropic-ai
 Disallow: /
-
 User-agent: Claude-Web
 Disallow: /
 
-# Allow Google bots
-User-agent: Googlebot
-Allow: /
-
-User-agent: Googlebot-Image
-Allow: /
-
-# Allow Bing
-User-agent: Bingbot
-Allow: /
-
-# Crawl delay
-Crawl-delay: 1
+# Sitemap
+Sitemap: https://diogocoutinho.com/sitemap.xml

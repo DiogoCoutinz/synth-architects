@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import LiquidEther from "@/components/LiquidEther";
+import SEO from "@/components/SEO";
 
 // Declare Cal on window for TypeScript
 declare global {
@@ -134,6 +135,10 @@ const FaturaAI = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="FaturaAI | Automação de Faturas com IA"
+        description="Automatize a recolha e organização de faturas da sua empresa com inteligência artificial. Extração automática de dados para Excel ou dashboards."
+      />
       {/* Hero + Video + CTA - Single focused section */}
       <section className="py-6 sm:py-8 md:py-16 relative min-h-[calc(100vh-60px)] sm:min-h-[calc(100vh-80px)] flex items-center overflow-hidden">
         {/* Liquid Ether Background */}

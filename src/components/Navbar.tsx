@@ -37,35 +37,53 @@ const Navbar = () => {
       <div className="container mx-auto px-6 md:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <motion.button 
-            onClick={() => scrollToSection("hero")} 
+          <a 
+            href="/#hero"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("hero");
+            }} 
             className="text-xl font-heading font-bold tracking-tight text-slate-900"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
           >
             Diogo Coutinho
-          </motion.button>
+          </a>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-10">
-            <button
-              onClick={() => scrollToSection("servicos")}
+            <a
+              href="/#servicos"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection("servicos");
+              }}
               className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors duration-200"
             >
               Serviços
-            </button>
-            <button
-              onClick={() => scrollToSection("projectos")}
+            </a>
+            <a
+              href="/#projectos"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection("projectos");
+              }}
               className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors duration-200"
             >
               Produtos
-            </button>
+            </a>
             <Button 
-              onClick={() => scrollToSection("contacto")} 
+              asChild
               size="sm"
-              className="bg-slate-900 hover:bg-slate-800 text-white border-0 px-6 h-10"
+              className="bg-slate-900 hover:bg-slate-800 text-white border-0 px-6 h-10 cursor-pointer"
             >
-              Contacto
+              <a 
+                href="/#contacto"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("contacto");
+                }}
+              >
+                Contacto
+              </a>
             </Button>
           </div>
 
@@ -88,24 +106,40 @@ const Navbar = () => {
           exit={{ opacity: 0, height: 0 }}
         >
           <div className="container mx-auto px-6 py-6 space-y-4">
-            <button
-              onClick={() => scrollToSection("servicos")}
+            <a
+              href="/#servicos"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection("servicos");
+              }}
               className="block w-full text-left py-3 text-sm font-medium text-slate-600"
             >
               Serviços
-            </button>
-            <button
-              onClick={() => scrollToSection("projectos")}
+            </a>
+            <a
+              href="/#projectos"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection("projectos");
+              }}
               className="block w-full text-left py-3 text-sm font-medium text-slate-600"
             >
               Produtos
-            </button>
+            </a>
             <Button 
-              onClick={() => scrollToSection("contacto")} 
+              asChild
               size="sm" 
               className="w-full bg-slate-900 hover:bg-slate-800 text-white"
             >
-              Contacto
+              <a 
+                href="/#contacto"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("contacto");
+                }}
+              >
+                Contacto
+              </a>
             </Button>
           </div>
         </motion.div>

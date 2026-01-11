@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Check, Clock, Video, Target } from "lucide-react";
 import LiquidEther from "@/components/LiquidEther";
+import SEO from "@/components/SEO";
 
 const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/aFa14naJGay6g8ngvlgMw00";
 
@@ -46,6 +47,10 @@ const OneOnOne = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50">
+      <SEO 
+        title="Consultoria 1-on-1 | Automação & IA"
+        description="Sessão prática de 60 minutos focada no seu negócio. Diagnóstico de processos e implementação de soluções de inteligência artificial e automação."
+      />
       {/* Liquid Ether Background */}
       <div className="absolute inset-0 opacity-20">
         <LiquidEther
